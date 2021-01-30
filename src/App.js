@@ -1,4 +1,4 @@
-// import React, { Component } from "react";
+import React, { React } from "react";
 import "./App.css";
 import Receipt from "./Receipt.js";
 
