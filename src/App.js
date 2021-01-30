@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import "./App.css";
 import Receipt from "./Receipt.js";
 
@@ -11,9 +11,9 @@ const receipt1 = {
     sauce: "Green Crack",
     toppings: ["Baby Bok Choy", "Cucumber Kimchi"],
     drink: "Korchata",
-    cost: 22
+    cost: 22,
   },
-  paid: false
+  paid: false,
 };
 const receipt2 = {
   person: "Jerrica",
@@ -24,9 +24,9 @@ const receipt2 = {
     sauce: "Korilla",
     toppings: ["Yuzu Pickled Sweet Pepper", "Kale"],
     drink: "Korchata",
-    cost: 19
+    cost: 19,
   },
-  paid: false
+  paid: false,
 };
 const receipt3 = {
   person: "Matt",
@@ -37,9 +37,9 @@ const receipt3 = {
     sauce: "K'lla",
     toppings: ["Blue Potato Salad", "Pico De Gallo", "Red Kimchi"],
     drink: "Sparkling Blood Orange Soda",
-    cost: 20
+    cost: 20,
   },
-  paid: false
+  paid: false,
 };
 const receipts = [receipt1, receipt2, receipt3];
 
@@ -48,26 +48,26 @@ class App extends React.Component {
     super(props);
     this.state = {
       receipts: receipts,
-      searchString: ""
+      searchString: "",
       // receipt1: receipt1,
       // receipt2: receipt2,
       // receipt3: receipt3
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
     this.handleSubmit();
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     this.setState({ receipts }, () =>
       this.setState({
-        receipts: this.state.receipts.filter(receipt =>
+        receipts: this.state.receipts.filter((receipt) =>
           receipt.person
             .toLowerCase()
             .includes(this.state.searchString.toLowerCase())
-        )
+        ),
       })
     );
   };
@@ -96,8 +96,8 @@ class App extends React.Component {
             <Receipt receipt={this.state.receipt3} />
           )} */}
           {this.state.receipts
-            .filter(receipt => !receipt.paid)
-            .map(receipt => (
+            .filter((receipt) => !receipt.paid)
+            .map((receipt) => (
               <Receipt receipt={receipt} key={receipt.person} />
             ))}
         </div>
